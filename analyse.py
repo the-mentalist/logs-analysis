@@ -64,11 +64,11 @@ for row in results:
 # here first query returns total request per day and second returns errors per day
 # both are joined to get percentage error
 cursor.execute(
-	"select to_char(total.date,'Mon DD, YYYY'), round(ee*100.0/tt,2) as percentage_error from " +
-	"(select date(time), count(status) as tt from log group by date(time)) as total left join " +
-	"(select date(time), count(status) as ee from log where status not like '%OK' group by date(time)) as error " +
+	"select to_char(total.date,'Mon DD, YYYY'), round(ecount*100.0/tcount,2) as percentage_error from " +
+	"(select date(time), count(status) as tcount from log group by date(time)) as total left join " +
+	"(select date(time), count(status) as ecount from log where status not like '%OK' group by date(time)) as error " +
 	"on total.date=error.date " +
-	"where  round(ee*100.0/tt,2)>1.00;"
+	"where  round(ecount*100.0/tcount,2)>1.00;"
 )
 
 results = cursor.fetchall()
