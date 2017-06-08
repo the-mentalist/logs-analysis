@@ -3,7 +3,7 @@ This module is in reference to Logs Analysis Project of Udacity's Full Stack Web
 Before running, please make sure that news database exists and psql should be installed.
 
 Files:
-	analyse.py - consist of Python2 code which connects to news database and extracts required responses
+	analyse.py - consist of Python2 code which connects to news database and extracts required responses.
 	response.png - screenshot of result of analyse.py
 
 Note: analyse.py also involves views, since creation and deletion is already handled in this file so there is no requirement of external creation of any view
